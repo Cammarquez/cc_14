@@ -20,6 +20,13 @@
             width: 30%;
             
         }
+        .levelDropdown {
+            width: 15%;
+            padding: 5px;
+            margin: 5px;
+            font-family: Arial, Helvetica, sans-serif;
+            background-color: lightblue;
+        }
         h1 {
             background-color: #333;
             color: #fff;
@@ -58,8 +65,10 @@
     </header>
     <main>
     <h2> Support Tickets</h2>
-    <button onclick="createSupportTicket('Enter name','Enter description','Enter level')"> Add Ticket</button>
+    <button onclick="createSupportTicket('Enter name','Enter description')"> Add Ticket</button>
     <div id="ticketContainer"></div>
+    <button onclick="highlightPriorityTickets()">Highlight Priority Tickets</button>
+    <button onclick="removeHighlight()">Remove Highlight</button>
     </main>
     <footer>
         <p>&copy; 2025 Customer Support Ticket System</p>

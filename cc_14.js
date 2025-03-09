@@ -1,7 +1,7 @@
 //Initial Commit
 
 //Task 2
-function createSupportTicket(name,description,level){
+function createSupportTicket(name,description){
     const ticket = document.createElement('div');
     ticket.setAttribute('class','ticketCard');
 
@@ -9,8 +9,18 @@ function createSupportTicket(name,description,level){
     ticketName.innerHTML = name;
     ticket.appendChild(ticketName);
 
-    const ticketLevel = document.createElement('h4');
-    ticketLevel.innerHTML = level;
+    const ticketLevel = document.createElement('select');
+    ticketLevel.setAttribute('class','levelDropdown');
+    const levels = ['Low', 'Medium', 'High','None'];
+    levels.forEach(lvl => {
+        const option = document.createElement('option');
+        option.value = lvl;
+        option.text = lvl;
+        if (lvl === lvl) {
+            option.selected = true;
+        }
+        ticketLevel.appendChild(option);
+    });
     ticket.appendChild(ticketLevel);
 
     const ticketDescription = document.createElement('p'); 
@@ -28,3 +38,27 @@ function createSupportTicket(name,description,level){
     const ticketContainer = document.getElementById('ticketContainer');
     ticketContainer.appendChild(ticket);
 }
+
+//Task 3
+
+function highlightPriorityTickets () {
+    const Tickets = document.querySelectorAll('.ticketCard');
+    const ticketsArray = Array.from(Tickets);
+    ticketsArray.forEach(ticket => {
+        const level = ticket.getElementsByTagName('select')[0].value;
+        if(level === 'High'){
+            ticket.style.backgroundColor = 'red';
+        }else if(level === 'Medium'){
+            ticket.style.backgroundColor = 'yellow';
+        }else if(level === 'Low'){
+            ticket.style.backgroundColor = 'green';
+        } });}
+
+function removeHighlight(){
+    const Tickets = document.getElementsByClassName('ticketCard');
+    const ticketsArray = Array.from(Tickets);
+    ticketsArray.forEach(ticket => {
+        ticket.style.backgroundColor = 'lightgrey';
+    });
+}
+
