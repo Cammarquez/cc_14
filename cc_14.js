@@ -27,13 +27,13 @@ function createSupportTicket(name,description){
     ticketDescription.innerHTML = description;
     ticket.appendChild(ticketDescription);
 
-    const removeButton = document.createElement('button');
-    removeButton.textContent = 'Remove';
-    removeButton.addEventListener('click',function(event){
+    const resolveButton = document.createElement('button');
+    resolveButton.textContent = 'Resolve';
+    resolveButton.addEventListener('click',function(event){
         event.stopPropagation();
             ticket.remove();
         });
-    ticket.appendChild(removeButton);
+    ticket.appendChild(resolveButton);
 
     const ticketContainer = document.getElementById('ticketContainer');
     ticketContainer.appendChild(ticket);
@@ -62,3 +62,8 @@ function removeHighlight(){
     });
 }
 
+//Task 4
+const ticketContainer = document.getElementById('ticketContainer');
+ticketContainer.addEventListener('click',function(){
+    console.log('Ticket container clicked');
+});
